@@ -1,0 +1,24 @@
+{
+  "name": "raintank-api",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "q": "*",
+    "express": "3.*",
+    "jade": "*",
+    "mongoose": "3.*",
+    "emailjs": "*",
+    "dustjs-linkedin": "*",
+    "bcrypt": "*",
+    "async": "*",
+    "cluster": "*",
+    "uuid": "*",
+    "tv4": "*",
+    "request": "*",
+    "lodash": "*",
+    "string-hash": "*"
+  }
+}

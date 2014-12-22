@@ -1,0 +1,29 @@
+doctype html
+html(class="no-js" lang="en")
+    head
+        title= title
+        meta(name="description" content="raintank cloud it monitoring")
+        meta(charset="utf-8")
+        meta(name="viewport" content="width=device-width")
+        link(rel='stylesheet' href='css/grafana.dark.min.css')
+
+    body
+        if loginError
+            div(class="row")
+                div(class=["span4 offset4"])
+                    div(class="alert alert-danger")
+                        =  loginError
+                        
+        div(class="row")
+            div(class="span4 offset4")
+                h2 Please Sign In
+                form(action="/login" method="post" name="signin" class="form-horizontal")
+                    input(type="email" placeholder="Email"  name="email")
+                    input(type="password" placeholder="Password"  name="password")
+                    input( type="submit" class="submit btn btn-primary btn-md pull-right" value="login")
+                    a(href="#/signup") Sign Up
+                    <span class="clearfix">
+
+        footer.footer
+            .container
+                p(class=["muted", "credit"]) &copy; Anthony Woods 2014

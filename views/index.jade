@@ -1,0 +1,30 @@
+doctype html
+html(class="no-js" lang="en")
+    head
+        title= title
+        meta(name="description" content="raintank cloud it monitoring")
+        meta(charset="utf-8")
+        meta(name="viewport" content="width=device-width")
+        link(rel='stylesheet' href='css/grafana.dark.min.css')
+        script(src="vendor/require/require.js")
+        script(src="app/components/require.config.js")
+        script(type='text/javascript').
+            require(['app'], function (app) { app.boot(); })
+
+    body(ng-cloak ng-controller="GrafanaCtrl")
+        link(rel='stylesheet' href='css/grafana.light.min.css' ng-if="grafana.stype === 'light'")
+        div(ng-repeat="alert in dashAlerts.list" class=["dashboard-notice alert-{{alert.severity}}"] ng-show="$last")
+            button(type="button" class="close" ng-click="dashAlerts.clear(alert)" style="padding-right:50px")
+                &times;
+            strong
+                {{alert.title}}
+            span(ng-bind-html="alert.text")
+            div(style="padding-right:10px" class=["pull-right", "small"])
+                {{$index + 1}} alert(s)
+
+        div(ng-view)
+
+        footer.footer
+            .container
+                p(class=["muted", "credit"]) &copy; Raintank 2014
+

@@ -1,0 +1,10 @@
+{ "_id" : "sin1" , "__v" : 0 , "name" : "Singapore", "region": "APAC", "country": "Singapore", "provider": "virtualbox"}
+{ "name" : "San Francisco" , "_id" : "sfo1" , "region": "AMER", "country": "US", "provider": "DigitalOcean", "__v" : 0}
+{ "name" : "New York" , "_id" : "nyc1" , "region": "AMER", "country": "US", "provider": "DigitalOcean", "__v" : 0}
+{ "name" : "London" , "_id" : "lon", "region": "EMEA", "country": "UK", "provider": "DigitalOcean", "__v" : 0}
+{ "name" : "Amsterdam" , "_id" : "ams1" , "region": "EMEA", "country": "Netherlands", "provider": "DigitalOcean", "__v" : 0}
+{ "name" : "Paris" , "_id" : "cdg1" , "region": "EMEA", "country": "France", "provider": "Vultr", "__v" : 0}
+{ "name" : "Frankfurt" , "_id" : "fra1" , "region": "EMEA", "country": "Germany", "provider": "Vultr", "__v" : 0}
+{ "name" : "New Jersey" , "_id" : "ewr1" , "region": "AMER", "country": "US", "provider": "Vultr", "__v" : 0}
+{ "name" : "Seattle" , "_id" : "sea1" , "region": "AMER", "country": "US", "provider": "Vultr", "__v" : 0}
+{ "name" : "Tokyo" , "_id" : "hnd1" , "region": "APAC", "country": "Japan", "provider": "Vultr", "__v" : 0}
