@@ -1,6 +1,6 @@
 var schema = require('raintank-core/schema');
 var producer = require('raintank-core/lib/kafka').producer;
-var config = require('raintank-core/config');
+var config = require('../config').config;
 var uitl = require('util');
 var hashCode = require('string-hash');
 

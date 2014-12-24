@@ -4,7 +4,7 @@
  */
 var schema = require('raintank-core/schema');
 var pass = require('raintank-core/lib/pass');
-var config = require('raintank-core/config');
+var config = require('../config').config;
 var emailjs = require('emailjs/email');
 
 exports.account = function(req, res) {

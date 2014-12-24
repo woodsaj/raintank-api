@@ -1,6 +1,6 @@
 var schema = require('raintank-core/schema');
 var fs = require('fs');
-var config = require('raintank-core/config');
+var config = require('../config').config;
 
 exports.adminGet = function(req, res) {
     var filter = {

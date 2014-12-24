@@ -6,6 +6,7 @@
     "start": "node app.js"
   },
   "dependencies": {
+    "raintank-core": "raintank/raintank-core",
     "q": "*",
     "express": "3.*",
     "jade": "*",

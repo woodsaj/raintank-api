@@ -2,6 +2,7 @@
 /**
  * Module dependencies.
  */
+var config = require('./config').config;
 var express = require('express');
 var schema = require('raintank-core/schema');
 var routes = require('./routes');
@@ -9,8 +10,7 @@ var path = require('path');
 var util = require('util');
 var cluster = require('cluster');
 var http = require('http');
-var config = require('raintank-core/config');
-var localConfig = require('./config');
+
 
 require('raintank-core/serviceTypes').init();
 
@@ -77,7 +77,7 @@ var apiAuth = function(req, res, next) {
 };
 
 // all environments
-app.set('port', localConfig.port || 4000);
+app.set('port', config.port || 4000);
 app.use(express.favicon());
 app.use(express.logger('short'));
 app.use(express.json());
@@ -246,7 +246,7 @@ app.delete('/locations/:id', rbac('admin',true), routes.location.delete);
 
 if (cluster.isMaster) {
     // Fork workers.
-    for (var i = 0; i < localConfig.numCPUs; i++) {
+    for (var i = 0; i < config.numCPUs; i++) {
         cluster.fork();
     }
 

@@ -1,5 +1,5 @@
 var schema = require('raintank-core/schema');
-var config = require('raintank-core/config');
+var config = require('../config').config;
 var cmUtil = require('raintank-core/lib/cmUtil');
 var async = require('async');
 var util = require('util');
