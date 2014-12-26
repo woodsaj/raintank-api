@@ -37,11 +37,11 @@ config.elasticSearch = {
 };
 
 config.zookeeper = {
-	connectionString: "192.168.2.17:2181"
+	connectionString: "zk:2181"
 };
 
 config.kafka = {
-	connectionString: "192.168.2.17:2181",
+	connectionString: "zk:2181",
 	partitions: 10,
 };
 
