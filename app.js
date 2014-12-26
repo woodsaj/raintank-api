@@ -10,7 +10,7 @@ var path = require('path');
 var util = require('util');
 var cluster = require('cluster');
 var http = require('http');
-
+require('./lib/kafka').init();
 
 require('raintank-core/serviceTypes').init();
 
