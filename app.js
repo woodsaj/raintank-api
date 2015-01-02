@@ -10,7 +10,11 @@ var path = require('path');
 var util = require('util');
 var cluster = require('cluster');
 var http = require('http');
-require('raintank-core/lib/kafka').init();
+var producer = require('raintank-queue').Publisher;
+producer.init({
+    publisherSocketAddr: config.queue.publisherSocketAddr,
+    partitions: config.queue.partitions,
+});
 
 require('raintank-core/serviceTypes').init();
 

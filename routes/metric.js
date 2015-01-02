@@ -1,5 +1,5 @@
 var schema = require('raintank-core/schema');
-var producer = require('raintank-core/lib/kafka').producer;
+var producer = require('raintank-queue').Publisher;
 var config = require('../config').config;
 var uitl = require('util');
 var hashCode = require('string-hash');
@@ -127,26 +127,18 @@ exports.store = function(req, res) {
         if (!(partition in messages)) {
             messages[partition] = [];
         }
-        messages[partition].push(JSON.stringify(metric));
+        messages[partition].push(metric);
     });
     var kafkaPayload = [];
     for (var id in messages) {
         kafkaPayload.push( {
             topic: "metrics",
-            messages: messages[id],
+            payload: messages[id],
             partition: id
         });
     }
 
-    producer.send(kafkaPayload, function(err, data) {
-        if (err) {
-            console.log(err);
-            return res.json(500, err);
-        } else {
-            console.log('metrics queued.');
-            return res.json({'success': true});
-        }
-    });
+    producer.batch(kafkaPayload);
 }
 
 function collectd(req, res) {

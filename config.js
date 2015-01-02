@@ -36,13 +36,10 @@ config.elasticSearch = {
   log: 'info'
 };
 
-config.zookeeper = {
-	connectionString: "zk:2181"
-};
-
-config.kafka = {
-	connectionString: "zk:2181",
+config.queue = {
+	publisherSocketAddr: 'tcp://127.0.0.1:9997',
 	partitions: 10,
+	mgmtUrl: "http://localhost:9999"
 };
 
 config.port = 4000;

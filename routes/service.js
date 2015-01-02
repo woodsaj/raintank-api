@@ -8,7 +8,7 @@ var carbon = require('raintank-core/lib/carbon');
 var Q = require('q');
 var lodash = require('lodash');
 var hashCode = require('string-hash');
-var producer = require('raintank-core/lib/kafka').producer;
+var producer = require('raintank-queue').Publisher;
 
 exports.get = function(req, res) {
     var filter = {
@@ -165,14 +165,9 @@ exports.update = function(req, res) {
                             service: {_id: service._id, locations: removedLocations}
                         };
                         var partition = hashCode(service._id) % config.kafka.partitions;
-                        producer.send([{topic: 'serviceChange', messages: [JSON.stringify(message)], partition: partition}], function(err, data) {
-                            if (err) {
-                                console.log(err);
-                                return next(err);
-                            }
-                            console.log('serviceChange event pushed to queue.');
-                            next();
-                        });
+                        producer.send('serviceChange', partition, [message]);
+                        console.log('serviceChange event pushed to queue.');
+                        next();
                     });
                 }
 

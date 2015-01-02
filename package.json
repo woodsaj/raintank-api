@@ -7,6 +7,7 @@
   },
   "dependencies": {
     "raintank-core": "raintank/raintank-core",
+    "raintank-queue": "raintank/raintank-queue",
     "q": "*",
     "express": "3.*",
     "jade": "*",
