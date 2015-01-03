@@ -6,8 +6,8 @@
     "start": "node app.js"
   },
   "dependencies": {
-    "raintank-core": "raintank/raintank-core",
-    "raintank-queue": "raintank/raintank-queue",
+    "raintank-core": "git+https://github.com/raintank/raintank-core.git",
+    "raintank-queue": "git+https://github.com/raintank/raintank-queue.git",
     "q": "*",
     "express": "3.*",
     "jade": "*",
