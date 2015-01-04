@@ -1,2 +1,2 @@
-{ "_id" : { "$oid" : "5314801a421408bcac0a6448"} , "name" : "Full" , "permissions" : { "continuousQuery" : "rw" , "metrics" : "rw" , "metricEvents" : "rw", "services" : "rw", "serviceEvents": "rw", "actions" : "rw" , "roles" : "rw" , "users" : "rw" , "accounts" : "rw"} , "public" : true}
+[{ "_id" : "5314801a421408bcac0a6448", "name" : "Full" , "permissions" : { "continuousQuery" : "rw" , "metrics" : "rw" , "metricEvents" : "rw", "services" : "rw", "serviceEvents": "rw", "actions" : "rw" , "roles" : "rw" , "users" : "rw" , "accounts" : "rw"} , "public" : true, "account": "531307ac1133a83d285b05a1"}]
 

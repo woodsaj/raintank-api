@@ -16,6 +16,7 @@ producer.init({
     partitions: config.queue.partitions,
 });
 
+require('resources').init();
 require('raintank-core/serviceTypes').init();
 
 var app = express();
