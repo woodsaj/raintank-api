@@ -1,8 +1,8 @@
 'use strict';
 var schema = require('raintank-core/schema');
-var resources = {};
 
 module.exports.init = function() {
+	var resources = {};
 	require('fs').readdirSync(__dirname + '/').forEach(function(file) {
 	  if (file.match(/.+\.json$/g) !== null) {
 	    var name = file.replace('.json', '');
