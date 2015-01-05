@@ -164,7 +164,7 @@ exports.update = function(req, res) {
                             action: "remove",
                             service: {_id: service._id, locations: removedLocations}
                         };
-                        var partition = hashCode(service._id) % config.kafka.partitions;
+                        var partition = hashCode(service._id) % config.queue.partitions;
                         producer.send('serviceChange', partition, [message]);
                         console.log('serviceChange event pushed to queue.');
                         next();

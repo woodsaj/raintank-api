@@ -74,7 +74,7 @@ exports.update = function(req, res) {
                 console.log("setting attr %s", attr);
                 metric[attr] = m[attr];
                 if (attr == 'state') {
-                    //TODO: send stateChange event to Kafka.
+                    //TODO: send stateChange event to message queue.
                     console.log('manually changing the metric state.');
                 }
             }
@@ -123,22 +123,22 @@ exports.store = function(req, res) {
     }
     var messages = {};
     payload.forEach(function(metric) {
-        var partition = hashCode(metric.name) % config.kafka.partitions;
+        var partition = hashCode(metric.name) % config.queue.partitions;
         if (!(partition in messages)) {
             messages[partition] = [];
         }
         messages[partition].push(metric);
     });
-    var kafkaPayload = [];
+    var msgPayload = [];
     for (var id in messages) {
-        kafkaPayload.push( {
+        msgPayload.push( {
             topic: "metrics",
             payload: messages[id],
             partition: id
         });
     }
 
-    producer.batch(kafkaPayload);
+    producer.batch(msgPayload);
 }
 
 function collectd(req, res) {
