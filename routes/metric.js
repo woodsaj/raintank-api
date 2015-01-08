@@ -139,6 +139,7 @@ exports.store = function(req, res) {
     }
 
     producer.batch(msgPayload);
+    return res.json(200, "OK");
 }
 
 function collectd(req, res) {
